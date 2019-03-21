@@ -8,6 +8,9 @@ trigger:
 
 pool:
   vmImage: 'Ubuntu-16.04'
+variables:
+  build_name: RWODevOpsTest
+  git_hash: null
 
 steps:
 - script: sudo apt-get install libboost-all-dev
@@ -16,7 +19,18 @@ steps:
 - script: g++ -std=c++11 -I/usr/include/boost/asio -I/usr/include/boost -o binary.out main.cpp connection.cpp connection_manager.cpp mime_types.cpp reply.cpp request_handler.cpp request_parser.cpp server.cpp -lboost_system -lboost_thread -lpthread
   displayName: 'Compiling the project DevOpsTest'
 
-- script: |
+- script: echo $(Build.BuildID)
+  displayName: 'Printing the build ID of the project'
+- script: echo $(RWODevOpsTest) 
+  displayName: 'Displaying the pipeline variable'
+- script: 
+    echo $(git log --format="%H" -n 1 | head -c 7)
+    git_hash = $(git log --format="%H" -n 1 | head -c 7)
+    echo $(git_hash)
+  displayName: 'Printing the git_hash variables'
+
+
+- script: 
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
