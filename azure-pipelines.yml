@@ -10,7 +10,7 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 steps:
-- script: apt-get install libboost-all-dev
+- script: sudo apt-get install libboost-all-dev
   displayName: 'Installing dependencies for the project DevOpsTest'
 
 - script: |
