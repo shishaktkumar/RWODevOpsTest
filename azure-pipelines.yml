@@ -43,7 +43,7 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    PathtoPublish: '$(Build.SourcesDirectory)'
     ArtifactName: RWODevOpsTest
 - script: |
     echo Add other tasks to build, test, and deploy your project.
