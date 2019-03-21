@@ -39,6 +39,7 @@ steps:
      echo $(buildnumber) > readme.txt
      ls
      cat readme.txt
+  displayName: 'Creating file readme.txt'
 
 
 - script: |
