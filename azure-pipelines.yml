@@ -29,6 +29,16 @@ steps:
   displayName: 'Printing the git_hash variables'
 - script: echo $(git_hash)
   displayName: 'Printing the git_hash variables'
+- script: |
+     ls
+     pwd
+     echo "##vso[task.setvariable variable=buildnumber]$(build_name).$(Build.BuildID).$(git_hash)"
+  displayName: 'Assigning the buildnumber variable'
+- script: |
+     echo $(buildnumber)
+     echo $(buildnumber) > readme.txt
+     ls
+     cat readme.txt
 
 
 - script: |
