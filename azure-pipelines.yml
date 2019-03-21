@@ -40,10 +40,14 @@ steps:
      ls
      cat readme.txt
   displayName: 'Creating file readme.txt'
-
+- task: CopyFiles@1
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)'
+    Contents: '**/?(readme.txt|binary.out)'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.SourcesDirectory)/{readme.txt,binary.out}'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: RWODevOpsTest
 - script: |
     echo Add other tasks to build, test, and deploy your project.
