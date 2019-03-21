@@ -10,8 +10,8 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- script: apt-get install libboost-all-dev
+  displayName: 'Installing dependencies for the project DevOpsTest'
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
