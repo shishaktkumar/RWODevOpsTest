@@ -43,7 +43,7 @@ steps:
 
 - task: CopyFiles@1
   inputs:
-    SourceFolder: '$(Build.SourceFolder)'
+    SourceFolder: '$(Build.SourcesDirectory)'
     Contents: '**/?(readme.txt|binary.out)'
 - task: PublishBuildArtifacts@1
   inputs:
