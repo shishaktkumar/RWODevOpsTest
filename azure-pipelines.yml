@@ -41,7 +41,14 @@ steps:
      cat readme.txt
   displayName: 'Creating file readme.txt'
 
-
+- task: CopyFiles@1
+  inputs:
+    SourceFolder: '$(Build.SourceFolder)'
+    Contents: '**/?(readme.txt|binary.out)'
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: RWODevOpsTest
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
