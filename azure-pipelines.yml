@@ -10,7 +10,6 @@ pool:
   vmImage: 'Ubuntu-16.04'
 variables:
   build_name: RWODevOpsTest
-  git_hash: null
 
 steps:
 - script: sudo apt-get install libboost-all-dev
