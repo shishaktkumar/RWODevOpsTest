@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/shishaktpatna/RWODevOpsTest/_apis/build/status/shishaktkumar.RWODevOpsTest?branchName=master)](https://dev.azure.com/shishaktpatna/RWODevOpsTest/_build/latest?definitionId=1&branchName=master)
 # RW1DevopsTestProject
 
 This is a test project for recrutation purpouse. 
