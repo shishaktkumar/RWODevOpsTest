@@ -18,27 +18,16 @@ steps:
 - script: g++ -std=c++11 -I/usr/include/boost/asio -I/usr/include/boost -o binary.out main.cpp connection.cpp connection_manager.cpp mime_types.cpp reply.cpp request_handler.cpp request_parser.cpp server.cpp -lboost_system -lboost_thread -lpthread
   displayName: 'Compiling the project DevOpsTest'
 
-- script: echo $(Build.BuildID)
-  displayName: 'Printing the build ID of the project'
-- script: echo $(build_name) 
-  displayName: 'Displaying the pipeline variable'
-- script: 
 - script: |
     echo $(git log --format="%H" -n 1 | head -c 7)
     echo '##vso[task.setvariable variable=git_hash]$(git log --format="%H" -n 1 | head -c 7)'
-  displayName: 'Printing the git_hash variables'
-- script: echo $(git_hash)
-  displayName: 'Printing the git_hash variables'
+  displayName: 'Getting the git_hash variable'
+
 - script: |
-     ls
-     pwd
      echo "##vso[task.setvariable variable=buildnumber]$(build_name).$(Build.BuildID).$(git_hash)"
   displayName: 'Assigning the buildnumber variable'
 - script: |
-     echo $(buildnumber)
      echo $(buildnumber) > readme.txt
-     ls
-     cat readme.txt
   displayName: 'Creating file readme.txt'
 - task: CopyFiles@1
   inputs:
